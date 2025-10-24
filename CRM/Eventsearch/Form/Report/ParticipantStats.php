@@ -136,13 +136,13 @@ class CRM_Eventsearch_Form_Report_ParticipantStats extends CRM_Report_Form_Event
       is_numeric($roleId) or die('WTF');
 
       $this->_columns['civicrm_event']['fields']["counted_$roleId"] = array(
-        'title' => ts("Counted ${label}"),
+        'title' => ts("Counted %1", [1 => $label]),
         // TODO: qualify role_id and is_counted
         'dbAlias' => "SUM(role_id = $roleId AND is_counted = 1)",
         'default' => TRUE,
       );
       $this->_columns['civicrm_event']['fields']["uncounted_$roleId"] = array(
-        'title' => ts("Uncounted ${label}"),
+        'title' => ts("Uncounted %1", [1 => $label]),
         // TODO: qualify role_id and is_counted
         'dbAlias' => "SUM(role_id = $roleId AND is_counted = 0)",
         'default' => TRUE,
